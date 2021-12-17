@@ -23,6 +23,7 @@ class UserApiConsumer:
             method='GET', 
             url='https://randomuser.me/api/'
         )
+        
         req_prepered = req.prepare()
         response = self.__send_http_request(req_prepered)
         status_code = response.status_code
