@@ -2,9 +2,11 @@ from typing import Tuple, Type
 from collections import namedtuple
 import requests
 from requests import Request
+from src.data.interfaces import UserApiConsumerInterface
 from src.errors import HttpRequestError
 
-class UserApiConsumer:
+
+class UserApiConsumer(UserApiConsumerInterface):
 
     '''
         Class to consumer the user api.
@@ -20,10 +22,10 @@ class UserApiConsumer:
         '''
 
         req = requests.Request(
-            method='GET', 
+            method='GET',
             url='https://randomuser.me/api/'
         )
-        
+
         req_prepered = req.prepare()
         response = self.__send_http_request(req_prepered)
         status_code = response.status_code
